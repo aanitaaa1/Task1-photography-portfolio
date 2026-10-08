@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sofia Lind Photography</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#hero" class="logo">Sofia Lind</a>
+      <ul>
+        <li><a href="#gallery">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="hero">
+      <p class="label">Photography · Stockholm</p>
+      <h1>Photography that tells a story.</h1>
+      <p>Natural light portraits, travel and landscapes, captured with warmth and simplicity.</p>
+      <div class="hero-buttons">
+        <a href="#gallery" class="btn-secondary">View work</a>
+        <a href="#contact" class="btn-primary">Book a shoot</a>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <p class="label">Selected work</p>
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <figure class="tall">
+          <img src="images/image-3.jpg" alt="Hiker with a backpack standing by a forest lake">
+          <figcaption>Quiet Lake — NORWAY</figcaption>
+        </figure>
+        <figure class="wide">
+          <img src="images/image-2.jpg" alt="Child jumping over a mountain stream">
+          <figcaption>Mountain Leap — CANADA</figcaption>
+        </figure>
+        <figure>
+          <img src="images/image-1.jpg" alt="Traditional roof seen through willow branches">
+          <figcaption>Willow Garden — KYOTO</figcaption>
+        </figure>
+        <figure>
+          <img src="images/image-7.jpg" alt="Old stone temple hidden in the jungle">
+          <figcaption>Hidden Temple — BALI</figcaption>
+        </figure>
+        <figure class="wide">
+          <img src="images/image-6.jpg" alt="Surfer on the waves at an orange sunset">
+          <figcaption>Last Wave — PORTUGAL</figcaption>
+        </figure>
+        <figure class="tall">
+          <img src="images/image-5.jpg" alt="Ornate stone arch against a blue sky">
+          <figcaption>Golden Arch — ROME</figcaption>
+        </figure>
+        <figure class="wide">
+          <img src="images/image-4.jpg" alt="View through the windshield of an old jeep">
+          <figcaption>Open Road — INDIA</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="about">
+      <img src="images/about.jpg" alt="Photographer holding a camera">
+      <div>
+        <p class="label">About</p>
+        <h2>Hi, I'm Sofia.</h2>
+        <p>I'm a photographer based in Stockholm, drawn to natural light, quiet landscapes and honest portraits. I travel to capture moments that feel calm, warm and real.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <p class="label">Contact</p>
+      <h2>Book a shoot</h2>
+      <p class="contact-intro">Tell me a little about what you have in mind, and I'll get back to you within two days.</p>
+      <form>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="session">Session type</label>
+            <select id="session" name="session">
+              <option>Portrait</option>
+              <option>Lifestyle</option>
+              <option>Travel</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="date">Preferred date</label>
+            <input type="date" id="date" name="date">
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary">Send</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p class="logo">Sofia Lind</p>
+    <ul>
+      <li><a href="#gallery">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <p class="copyright">© 2026 Sofia Lind Photography</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,495 @@
+/* =========================================
+   1. SETARI DE BAZA
+   ========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* paleta comuna a grupului */
+  --color-bg: #F7F6F2;
+  --color-text: #1A1A1A;
+  --color-text-secondary: #77736D;
+  --color-accent: #9A7B5B;
+  --color-border: #DEDAD3;
+
+  /* nuante derivate din paleta */
+  --color-surface: #EFECE6;
+  --color-accent-dark: #7E6247;
+
+  /* umbre fine */
+  --shadow-soft: 0 6px 20px rgba(26, 26, 26, 0.1);
+  --shadow-hover: 0 14px 32px rgba(26, 26, 26, 0.18);
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================================
+   2. TITLURI SI TEXTE GENERALE
+   ========================================= */
+
+h1,
+h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 24px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin: 0 0 8px;
+}
+
+/* =========================================
+   3. BUTOANE
+   ========================================= */
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 14px 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  text-decoration: none;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  border: 1px solid var(--color-accent);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+/* =========================================
+   4. NAVBAR (Flexbox)
+   ========================================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.logo {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.4rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul a {
+  display: block;
+  padding: 8px 20px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+nav ul a:hover {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* =========================================
+   5. HERO (Flexbox)
+   ========================================= */
+
+#hero {
+  max-width: none;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image:
+    linear-gradient(rgba(26, 26, 26, 0.35), rgba(26, 26, 26, 0.35)),
+    url("images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--color-bg);
+}
+
+#hero .label {
+  color: var(--color-bg);
+}
+
+#hero p {
+  max-width: 600px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+#hero .btn-secondary {
+  color: var(--color-bg);
+  border-color: var(--color-bg);
+}
+
+#hero .btn-secondary:hover {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* =========================================
+   6. GALERIA (Grid) - poze in casete
+   ========================================= */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 320px;
+  gap: 24px;
+  grid-auto-flow: dense;
+}
+
+.gallery-grid figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background-color: #fff;
+  padding: 12px 12px 0;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.gallery-grid figure:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+.gallery-grid img {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+.gallery-grid figcaption {
+  padding: 12px 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+}
+
+.gallery-grid .wide {
+  grid-column: span 2;
+}
+
+.gallery-grid .tall {
+  grid-row: span 2;
+}
+
+/* =========================================
+   7. ABOUT (Flexbox)
+   ========================================= */
+
+#about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  border-top: 1px solid var(--color-border);
+}
+
+#about img {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background-color: #fff;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+}
+
+#about div {
+  flex: 1;
+  max-width: 500px;
+}
+
+#about p:not(.label) {
+  color: var(--color-text-secondary);
+}
+
+/* =========================================
+   8. CONTACT (Flexbox + Grid)
+   ========================================= */
+
+#contact {
+  max-width: 640px;
+}
+
+.contact-intro {
+  color: var(--color-text-secondary);
+  margin: 0 0 32px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #fff;
+  padding: 32px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+input,
+select {
+  height: 44px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(154, 123, 91, 0.15);
+}
+
+textarea {
+  resize: vertical;
+}
+
+form .btn-primary {
+  align-self: flex-start;
+  padding: 14px 36px;
+}
+
+/* =========================================
+   9. FOOTER (Flexbox)
+   ========================================= */
+
+footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+footer .logo {
+  margin: 0;
+}
+
+footer ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+footer a:hover {
+  color: var(--color-accent);
+}
+
+.copyright {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+/* =========================================
+   10. TABLETA (max 900px)
+   ========================================= */
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 280px;
+  }
+
+  .gallery-grid .tall {
+    grid-row: span 1;
+  }
+
+  #about {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+}
+
+/* =========================================
+   11. TELEFON (max 600px)
+   ========================================= */
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  nav ul {
+    gap: 8px;
+  }
+
+  nav ul a {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  section {
+    padding: 56px 16px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .gallery-grid .wide {
+    grid-column: span 1;
+  }
+
+  .gallery-grid img {
+    flex: none;
+    height: 300px;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
