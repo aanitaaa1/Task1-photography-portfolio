@@ -1,54 +1,59 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- HTML5 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- needed for responsive design -->
   <title>Sofia Lind Photography</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Google Fonts: Inter and Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- loads the fonts faster -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"> <!-- connects the CSS file -->
 </head>
 <body>
 
+  <!-- Header: semantic landmark -->
   <header>
-    <nav>
-      <a href="#hero" class="logo">Sofia Lind</a>
-      <ul>
-        <li><a href="#gallery">Work</a></li>
+    <nav> <!-- semantic landmark for the menu -->
+      <a href="#hero" class="logo">Sofia Lind</a> <!-- links back to the top -->
+      <ul> <!-- the menu is a list of links -->
+        <li><a href="#gallery">Work</a></li> <!-- # + id scrolls to the section -->
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
+  <main> <!-- semantic landmark for the main content -->
 
+    <!-- Hero: the background photo is added in CSS -->
     <section id="hero">
       <p class="label">Photography · Stockholm</p>
-      <h1>Photography that tells a story.</h1>
+      <h1>Photography that tells a story.</h1> <!-- the only h1 -->
       <p>Natural light portraits, travel and landscapes, captured with warmth and simplicity.</p>
-      <div class="hero-buttons">
+      <div class="hero-buttons"> <!-- Flexbox places the buttons side by side -->
         <a href="#gallery" class="btn-secondary">View work</a>
-        <a href="#contact" class="btn-primary">Book a shoot</a>
+        <a href="#contact" class="btn-primary">Book a shoot</a> <!-- replaces the shop button -->
       </div>
     </section>
 
+    <!-- Gallery (Grid): tall = 2 rows, wide = 2 columns -->
     <section id="gallery">
       <p class="label">Selected work</p>
-      <h2>Gallery</h2>
+      <h2>Gallery</h2> <!-- section headings are h2 -->
       <div class="gallery-grid">
+        <!-- figure + figcaption: image with its caption -->
         <figure class="tall">
-          <img src="images/image-3.jpg" alt="Hiker with a backpack standing by a forest lake">
+          <img src="images/image-3.jpg" alt="Hiker with a backpack standing by a forest lake"> <!-- alt describes the photo -->
           <figcaption>Quiet Lake — NORWAY</figcaption>
         </figure>
         <figure class="wide">
           <img src="images/image-2.jpg" alt="Child jumping over a mountain stream">
           <figcaption>Mountain Leap — CANADA</figcaption>
         </figure>
-        <figure>
+        <figure> <!-- no class = normal size -->
           <img src="images/image-1.jpg" alt="Traditional roof seen through willow branches">
           <figcaption>Willow Garden — KYOTO</figcaption>
         </figure>
@@ -71,35 +76,39 @@
       </div>
     </section>
 
+    <!-- About (Flexbox): photo + short text -->
     <section id="about">
       <img src="images/about.jpg" alt="Photographer holding a camera">
-      <div>
+      <div> <!-- groups the text into one block next to the photo -->
         <p class="label">About</p>
         <h2>Hi, I'm Sofia.</h2>
         <p>I'm a photographer based in Stockholm, drawn to natural light, quiet landscapes and honest portraits. I travel to capture moments that feel calm, warm and real.</p>
       </div>
     </section>
 
+    <!-- Contact: booking form -->
     <section id="contact">
       <p class="label">Contact</p>
       <h2>Book a shoot</h2>
       <p class="contact-intro">Tell me a little about what you have in mind, and I'll get back to you within two days.</p>
-      <form>
+      <form> <!-- not connected to a server -->
+        <!-- form-row: two fields side by side (Grid) -->
         <div class="form-row">
+          <!-- form-field: label above its field (Flexbox) -->
           <div class="form-field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+            <label for="name">Name</label> <!-- for + id connect the label to the field -->
+            <input type="text" id="name" name="name" required> <!-- required: can't be empty -->
           </div>
           <div class="form-field">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required> <!-- checks for a valid email -->
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-field">
             <label for="session">Session type</label>
-            <select id="session" name="session">
+            <select id="session" name="session"> <!-- dropdown list -->
               <option>Portrait</option>
               <option>Lifestyle</option>
               <option>Travel</option>
@@ -107,24 +116,25 @@
           </div>
           <div class="form-field">
             <label for="date">Preferred date</label>
-            <input type="date" id="date" name="date">
+            <input type="date" id="date" name="date"> <!-- shows a calendar -->
           </div>
         </div>
 
-        <div class="form-field">
+        <div class="form-field"> <!-- full width -->
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4"></textarea>
+          <textarea id="message" name="message" rows="4"></textarea> <!-- multi-line text box -->
         </div>
 
-        <button type="submit" class="btn-primary">Send</button>
+        <button type="submit" class="btn-primary">Send</button> <!-- a button, because it's an action -->
       </form>
     </section>
 
   </main>
 
+  <!-- Footer: semantic landmark -->
   <footer>
-    <p class="logo">Sofia Lind</p>
-    <ul>
+    <p class="logo">Sofia Lind</p> <!-- reuses the logo style -->
+    <ul> <!-- links repeated -->
       <li><a href="#gallery">Work</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>

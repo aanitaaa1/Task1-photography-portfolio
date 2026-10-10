@@ -1,7 +1,3 @@
-/* =========================================
-   1. SETARI DE BAZA
-   ========================================= */
-
 *,
 *::before,
 *::after {
@@ -43,9 +39,7 @@ img {
   display: block;
 }
 
-/* =========================================
-   2. TITLURI SI TEXTE GENERALE
-   ========================================= */
+/*titluri si texte generale */
 
 h1,
 h2 {
@@ -77,12 +71,11 @@ section {
   margin: 0 0 8px;
 }
 
-/* =========================================
-   3. BUTOANE
-   ========================================= */
+/* 
+  butoane */
 
-.btn-primary,
-.btn-secondary {
+.btn-primary,  /*The main button: brown background, cream text*/
+.btn-secondary {  /* for the second one*/
   display: inline-block;
   padding: 14px 28px;
   text-transform: uppercase;
@@ -90,8 +83,8 @@ section {
   font-size: 0.8rem;
   text-decoration: none;
   font-family: inherit;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;/*Shows the hand cursor on hover*/
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /*Makes the color changes on hover smooth*/
 }
 
 .btn-primary {
@@ -100,7 +93,7 @@ section {
   border: 1px solid var(--color-accent);
 }
 
-.btn-primary:hover {
+.btn-primary:hover {  /*only while the mouse is over the element */
   background-color: var(--color-accent-dark);
   border-color: var(--color-accent-dark);
 }
@@ -116,13 +109,12 @@ section {
   color: var(--color-bg);
 }
 
-/* =========================================
-   4. NAVBAR (Flexbox)
-   ========================================= */
+/* 
+  Navbar*/
 
 header {
   position: sticky;
-  top: 0;
+  top: 0; /*It sticks at the very top of the screen*/
   z-index: 10;
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
@@ -130,8 +122,8 @@ header {
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
+  display: flex; /*the logo and the list sit in a row*/
+  justify-content: space-between; /*Pushes the first item (logo) to the left*/
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
@@ -139,21 +131,21 @@ nav {
 }
 
 .logo {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Playfair Display", Georgia, serif; 
   font-size: 1.4rem;
   color: var(--color-text);
-  text-decoration: none;
+  text-decoration: none; /*Removes the default link underline*/
 }
 
-nav ul {
-  display: flex;
+nav ul { /*the list of links (Flexbox)*/
+  display: flex;  /*Places the list items side by side instead of one under another.*/
   gap: 12px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-nav ul a {
+nav ul a { /*the menu buttons-styles only the menu links*/
   display: block;
   padding: 8px 20px;
   border: 1px solid var(--color-border);
@@ -168,7 +160,7 @@ nav ul a {
               box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-nav ul a:hover {
+nav ul a:hover {/*on mouse over*/
   border-color: var(--color-accent);
   background-color: var(--color-accent);
   color: var(--color-bg);
@@ -176,12 +168,10 @@ nav ul a:hover {
   transform: translateY(-2px);
 }
 
-/* =========================================
-   5. HERO (Flexbox)
-   ========================================= */
+/* Hero */
 
-#hero {
-  max-width: none;
+#hero { /*the section*/
+  max-width: none; /*All sections have max-width: 1200px in the general section rule*/
   min-height: 85vh;
   display: flex;
   flex-direction: column;
@@ -193,10 +183,10 @@ nav ul a:hover {
     url("images/hero.jpg");
   background-size: cover;
   background-position: center;
-  color: var(--color-bg);
+   color: var(--color-bg); /*Makes the text cream, so it stands out on the dark photo*/
 }
 
-#hero .label {
+#hero .label { /*It only affects the label in the hero*/
   color: var(--color-bg);
 }
 
@@ -204,37 +194,35 @@ nav ul a:hover {
   max-width: 600px;
 }
 
-.hero-buttons {
+.hero-buttons { /*the button container*/
   display: flex;
   gap: 16px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /*If the buttons don't fit on one line (on small phones), the second moves to a new line instead of overflowing*/
   justify-content: center;
   margin-top: 16px;
 }
 
-#hero .btn-secondary {
+#hero .btn-secondary {  /*the "View work" button*/
   color: var(--color-bg);
   border-color: var(--color-bg);
 }
 
-#hero .btn-secondary:hover {
+#hero .btn-secondary:hover {  
   background-color: var(--color-bg);
   color: var(--color-text);
 }
 
-/* =========================================
-   6. GALERIA (Grid) - poze in casete
-   ========================================= */
-
-.gallery-grid {
-  display: grid;
+/* Galeria-grid */
+ 
+.gallery-grid {  /*the grid container*/
+  display: grid; 
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 320px;
   gap: 24px;
-  grid-auto-flow: dense;
+  grid-auto-flow: dense; /*Tells the grid to fill empty spaces automatically*/
 }
 
-.gallery-grid figure {
+.gallery-grid figure { /*each photo frame*/
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -243,22 +231,22 @@ nav ul a:hover {
   padding: 12px 12px 0;
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-soft);
-  transition: box-shadow 0.4s ease, transform 0.4s ease;
-}
+  transition: box-shadow 0.4s ease, transform 0.4s ease; /*Makes the shadow and movement change smoothly over 0.4 seconds.*/
+} /*Grid places the figures on the page, and Flexbox arranges the image and caption inside each figure*/
 
-.gallery-grid figure:hover {
+.gallery-grid figure:hover {   /*on mouse over*/
   box-shadow: var(--shadow-hover);
-  transform: translateY(-4px);
+  transform: translateY(-4px); /*Moves the frame up by 4px, so it looks lifted*/
 }
 
-.gallery-grid img {
-  flex: 1;
+.gallery-grid img {  
+  flex: 1;  /*The image takes all the remaining space in the figure, after the caption*/
   min-height: 0;
   width: 100%;
-  object-fit: cover;
+  object-fit: cover; /*The image fills its box completely, keeps its proportions, and crops the parts that don't fit*/
 }
 
-.gallery-grid figcaption {
+.gallery-grid figcaption { /*the titles*/
   padding: 12px 0;
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -266,82 +254,79 @@ nav ul a:hover {
   color: var(--color-text-secondary);
 }
 
-.gallery-grid .wide {
+.gallery-grid .wide {        /*The photo spans 2 columns, so it becomes horizontal.*/
   grid-column: span 2;
 }
-
+                             /*photo sizes*/ 
 .gallery-grid .tall {
-  grid-row: span 2;
+  grid-row: span 2;          /* The photo spans 2 rows, so it becomes vertical.*/
 }
 
-/* =========================================
-   7. ABOUT (Flexbox)
-   ========================================= */
+/* About */
 
 #about {
-  display: flex;
+  display: flex; /*Turns the section into a flex container*/
   align-items: center;
   justify-content: center;
-  gap: 64px;
+  gap: 64px;  /*64px of space between the photo and the text.*/
   border-top: 1px solid var(--color-border);
 }
 
 #about img {
   width: 100%;
-  max-width: 340px;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  max-width: 340px; 
+  aspect-ratio: 4 / 5;  /*Gives the photo a fixed shape: 4 units wide, 5 units tall, a vertical portrait.*/
+  object-fit: cover;   /*Fills that shape without stretching, cropping the edges that don't fit.*/
   background-color: #fff;
   padding: 12px;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border); /*Thin light-gray line around the frame*/
   box-shadow: var(--shadow-soft);
 }
 
-#about div {
-  flex: 1;
+#about div {   /*the text block*/
+  flex: 1;  /*The text block takes the remaining space next to the photo*/
   max-width: 500px;
 }
 
-#about p:not(.label) {
-  color: var(--color-text-secondary);
+#about p:not(.label) {  /*the paragraph*/   /*#about p- All paragraphs inside the About section
+:not(.label)	Except those with class="label"*/
+  color: var(--color-text-secondary);      
 }
 
-/* =========================================
-   8. CONTACT (Flexbox + Grid)
-   ========================================= */
+/* Contact  */
 
 #contact {
   max-width: 640px;
 }
 
-.contact-intro {
+.contact-intro {   /*the introduction text*/
   color: var(--color-text-secondary);
   margin: 0 0 32px;
-  text-wrap: balance;
+  text-wrap: balance; /*Balances the line lengths, so a single word isn't left alone on the last line*/
 }
 
 form {
-  display: flex;
-  flex-direction: column;
+  display: flex; /*the form card (Flexbox)*/
+  flex-direction: column;              /*Stacks the rows and the button vertically.*/
   gap: 20px;
   background-color: #fff;
-  padding: 32px;
+  padding: 32px;  /*space inside the card, around the fields*/
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-soft);
 }
-
-.form-row {
+ 
+.form-row {   /*two fields side by side*/
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /*Two equal columns*/
   gap: 16px;
 }
 
-.form-field {
+.form-field {  /*label above field*/
   display: flex;
   flex-direction: column;
 }
 
-label {
+label { /*the field labels*/
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -349,7 +334,7 @@ label {
   margin-bottom: 6px;
 }
 
-input,
+input,  /*all the fields*/
 select,
 textarea {
   width: 100%;
@@ -363,11 +348,11 @@ textarea {
 }
 
 input,
-select {
+select {   /*equal height*/
   height: 44px;
 }
-
-input:focus,
+/*focus- when you click in a field*/
+input:focus,    
 select:focus,
 textarea:focus {
   outline: none;
@@ -375,22 +360,20 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(154, 123, 91, 0.15);
 }
 
-textarea {
+textarea { /*the message box*/
   resize: vertical;
 }
 
-form .btn-primary {
-  align-self: flex-start;
+form .btn-primary { /*the Send button*/
+  align-self: flex-start; /*In a flex column, items stretch to full width by default. This keeps the button only as wide as its text, aligned to the left*/
   padding: 14px 36px;
 }
 
-/* =========================================
-   9. FOOTER (Flexbox)
-   ========================================= */
+/* Footer */
 
-footer {
-  background-color: var(--color-surface);
-  border-top: 1px solid var(--color-border);
+footer {   /*the bottom of the page*/
+  background-color: var(--color-surface); /*A slightly darker cream than the page, so the footer feels like the end of the page*/
+  border-top: 1px solid var(--color-border); 
   padding: 48px 24px;
   display: flex;
   flex-direction: column;
@@ -403,23 +386,23 @@ footer .logo {
   margin: 0;
 }
 
-footer ul {
-  display: flex;
+footer ul { /*the links*/
+  display: flex; /*Places the links in a row*/
   gap: 24px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-footer a {
+footer a { /*the link style*/
   color: var(--color-text-secondary);
   text-decoration: none;
   font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.1em; /*Extra space between letters*/
 }
 
-footer a:hover {
+footer a:hover { /*on mouse over*/
   color: var(--color-accent);
 }
 
@@ -429,38 +412,34 @@ footer a:hover {
   color: var(--color-text-secondary);
 }
 
-/* =========================================
-   10. TABLETA (max 900px)
-   ========================================= */
+/* tablet */
 
-@media (max-width: 900px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 280px;
+@media (max-width: 900px) { /*A media query applies CSS only when a condition is true. max-width: 900px means "only on screens that are 900px wide or less.*/
+  .gallery-grid { /*selects the gallery container*/
+    grid-template-columns: repeat(2, 1fr); /*2 columns instead of 3, because 3 would be too narrow*/
+    grid-auto-rows: 280px;  
   }
 
-  .gallery-grid .tall {
-    grid-row: span 1;
+  .gallery-grid .tall {   /*Selects the tall photos in the gallery.*/
+    grid-row: span 1; /*Makes them span 1 row instead of 2, so the 2-column grid has no gaps*/
   }
 
-  #about {
+  #about { 
     flex-direction: column;
     align-items: flex-start;
     gap: 32px;
   }
 }
 
-/* =========================================
-   11. TELEFON (max 600px)
-   ========================================= */
+/* telefon */
 
-@media (max-width: 600px) {
+@media (max-width: 600px) { /*Opens the phone media query. Everything inside applies only on screens 600px wide or less*/
   html {
-    scroll-padding-top: 140px;
+    scroll-padding-top: 140px; /*When a nav link is clicked, the page stops 140px from the top.*/
   }
 
   nav {
-    flex-direction: column;
+    flex-direction: column;  /*Puts the name above the links*/
     gap: 16px;
     padding: 16px;
   }
@@ -469,7 +448,7 @@ footer a:hover {
     gap: 8px;
   }
 
-  nav ul a {
+  nav ul a { /*Selects the menu buttons*/
     padding: 6px 12px;
     font-size: 0.75rem;
   }
@@ -488,11 +467,11 @@ footer a:hover {
 
   .gallery-grid {
     grid-template-columns: 1fr;
-    grid-auto-rows: auto;
+    grid-auto-rows: auto;   /*Rows take the height of their content instead of a fixed height*/
   }
 
   .gallery-grid .wide {
-    grid-column: span 1;
+    grid-column: span 1;   /*Wide photos span 1 column instead of 2. With only one column, span 2 would push them outside the grid and cause horizontal scroll*/
   }
 
   .gallery-grid img {
