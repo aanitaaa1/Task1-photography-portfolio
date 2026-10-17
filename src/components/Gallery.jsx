@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import photos from '../data/photos'
+import FavoriteToggle from './FavoriteToggle'
 
 const sizeClasses = {
   tall: 'lg:row-span-2',
@@ -6,7 +8,25 @@ const sizeClasses = {
   normal: '',
 }
 
+const categories = ['All', 'Nature', 'Architecture', 'Travel']
+
 function Gallery() {
+  const [activeCategory, setActiveCategory] = useState('All')
+  const [favorites, setFavorites] = useState([])
+
+  const visiblePhotos =
+    activeCategory === 'All'
+      ? photos
+      : photos.filter((photo) => photo.category === activeCategory)
+
+  function toggleFavorite(id) {
+    if (favorites.includes(id)) {
+      setFavorites(favorites.filter((favoriteId) => favoriteId !== id))
+    } else {
+      setFavorites([...favorites, id])
+    }
+  }
+
   return (
     <section id="gallery" className="max-w-[1200px] mx-auto px-4 py-14 sm:px-6 md:py-20">
       <p className="uppercase tracking-[0.15em] text-[0.8rem] text-stone mb-2">
@@ -16,8 +36,28 @@ function Gallery() {
         Gallery
       </h2>
 
+      {/* Filtrul */}
+      <div className="flex flex-wrap gap-2 mb-8">
+        {categories.map((category) => (
+          <button
+            key={category}
+            type="button"
+            onClick={() => setActiveCategory(category)}
+            aria-pressed={activeCategory === category}
+            className={`px-4 py-2 text-xs uppercase tracking-[0.1em] border cursor-pointer transition ${
+              activeCategory === category
+                ? 'bg-accent border-accent text-cream'
+                : 'bg-white border-line text-ink hover:border-accent'
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      {/* Grila cu poze */}
       <div className="grid grid-cols-1 gap-6 grid-flow-dense sm:grid-cols-2 sm:auto-rows-[280px] lg:grid-cols-3 lg:auto-rows-[320px]">
-        {photos.map((photo) => (
+        {visiblePhotos.map((photo) => (
           <figure
             key={photo.id}
             className={`flex flex-col min-h-0 bg-white p-3 pb-0 border border-line shadow-soft transition duration-300 hover:shadow-hover hover:-translate-y-1 ${sizeClasses[photo.size]}`}
@@ -27,11 +67,18 @@ function Gallery() {
               alt={photo.alt}
               className="w-full h-[300px] object-cover sm:h-auto sm:flex-1 sm:min-h-0"
             />
-            <figcaption className="py-3 font-serif">
-              {photo.title}{' '}
-              <span className="text-stone text-xs uppercase tracking-[0.1em]">
-                — {photo.location}
+            <figcaption className="py-3 flex items-center justify-between gap-2">
+              <span className="font-serif">
+                {photo.title}{' '}
+                <span className="text-stone text-xs uppercase tracking-[0.1em]">
+                  — {photo.location}
+                </span>
               </span>
+
+              <FavoriteToggle
+                isFavorite={favorites.includes(photo.id)}
+                onToggle={() => toggleFavorite(photo.id)}
+              />
             </figcaption>
           </figure>
         ))}
