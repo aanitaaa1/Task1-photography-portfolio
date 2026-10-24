@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS photos (
+  id SERIAL PRIMARY KEY,
+  title TEXT NOT NULL,
+  location TEXT NOT NULL,
+  category TEXT NOT NULL,
+  src TEXT NOT NULL,
+  alt TEXT NOT NULL,
+  size TEXT NOT NULL DEFAULT 'normal'
+);
